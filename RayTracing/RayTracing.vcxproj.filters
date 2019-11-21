@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="template">
+      <UniqueIdentifier>{1dc2c6b0-c9f3-4acb-97f6-ad6199b0f38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{970e4a26-f16f-4230-8768-8d9b45e4c68d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="material">
+      <UniqueIdentifier>{6db8d0a7-4959-4f59-8933-22fc1f4a8b86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shape">
+      <UniqueIdentifier>{1ba15cfc-8088-4ebc-a83b-4e76ef7392aa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFilter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Vector3.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Geometry.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Dielectric.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Lambertian.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Metal.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Material.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\Sphere.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\ShapeList.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Image.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFilter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Template\Singleton.h">
+      <Filter>template</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Vector3.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Geometry.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Size.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Lambertian.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Material.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Metal.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Dielectric.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Sphere.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\ShapeList.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\HitRecord.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
