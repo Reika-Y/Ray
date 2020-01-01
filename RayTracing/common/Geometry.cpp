@@ -127,21 +127,17 @@ bool Refract(const Vector3& v, const Vector3& n, float ni_over_nt, Vector3& refr
 	return false;
 }
 
+
+
+// リニア空間からsRGB空間に変換
 Vector3 LinearToGamma(const Vector3& v, float gammaFactor)
 {
 	float recipGammaFactor = Recip(gammaFactor);
-	return Vector3(
-		powf(v.x, recipGammaFactor),
-		powf(v.y, recipGammaFactor),
-		powf(v.z, recipGammaFactor)
-	);
+	return Vector3(powf(v.x, recipGammaFactor), powf(v.y, recipGammaFactor), powf(v.z, recipGammaFactor));
 }
 
+// sRGB空間からリニア空間に変換
 Vector3 GammaToLinear(const Vector3& v, float gammaFactor)
 {
-	return Vector3(
-		powf(v.x, gammaFactor),
-		powf(v.y, gammaFactor),
-		powf(v.z, gammaFactor)
-	);
+	return Vector3(powf(v.x, gammaFactor), powf(v.y, gammaFactor), powf(v.z, gammaFactor));
 }

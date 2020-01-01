@@ -1,5 +1,6 @@
 ﻿#include "Sphere.h"
 #include "../Ray.h"
+#include "../AABB.h"
 
 Sphere::Sphere()
 {
@@ -50,4 +51,10 @@ bool Sphere::Hit(const Ray& ray, float t_min, float t_max, HitRecord& rec) const
 		}
 	}
 	return false;
+}
+
+bool Sphere::BoundingBox(float t0, float t1, AABB& box) const
+{
+	box = AABB(_center - Vector3(_radius, _radius, _radius), _center + Vector3(_radius, _radius, _radius));
+	return true;
 }

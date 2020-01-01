@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABB.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="common\Geometry.cpp" />
     <ClCompile Include="common\Vector3.cpp" />
@@ -149,11 +150,14 @@
     <ClCompile Include="material\Metal.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="shape\BvhNode.cpp" />
+    <ClCompile Include="shape\MovingSphere.cpp" />
     <ClCompile Include="shape\ShapeList.cpp" />
     <ClCompile Include="shape\Sphere.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABB.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="common\Geometry.h" />
     <ClInclude Include="common\Size.h" />
@@ -166,7 +170,9 @@
     <ClInclude Include="material\Metal.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="shape\BvhNode.h" />
     <ClInclude Include="shape\HitRecord.h" />
+    <ClInclude Include="shape\MovingSphere.h" />
     <ClInclude Include="shape\ShapeList.h" />
     <ClInclude Include="shape\Sphere.h" />
     <ClInclude Include="Template\Singleton.h" />

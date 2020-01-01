@@ -19,6 +19,7 @@ public:
 	bool Hit(const Ray& ray, float t_min, float t_max, HitRecord& rec)const override;
 	// 物体追加
 	void Add(const ShapePtr& shape);
+	bool BoundingBox(float t0, float t1, AABB& box)const override;
 private:
 	std::vector<ShapePtr>_shapes;
 };

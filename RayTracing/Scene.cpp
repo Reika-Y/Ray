@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include "shape/ShapeList.h"
 #include "shape/Sphere.h"
+#include "shape/MovingSphere.h"
 #include "material/Material.h"
 #include "material/Lambertian.h"
 #include "material/Metal.h"
@@ -48,12 +49,13 @@ void Scene::Render(void)
 				Ray ray = (*_camera).GetRay(u, v);
 				c += GetColor(ray, _shape.get(),0);
 			}
+
 			c = c / static_cast<float>(_samples);
 			(*_image).Write(i, (size.height - j - 1), c.x, c.y, c.z);
 		}
 	}
 
-	stbi_write_bmp("image/lot.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/motion_blur.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
@@ -65,7 +67,7 @@ void Scene::Init(void)
 	Vector3 vup(0.0f, 1.0f, 0.0f);
 	auto size = (*_image).ImageSize();
 	float aspect = static_cast<float>(size.width) / static_cast<float>(size.height);
-	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20,aspect);
+	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20, aspect, 10, 0.0f, 1.0f);
 
 	// Shape
 	ShapeList* list = new ShapeList();
@@ -83,7 +85,7 @@ void Scene::Init(void)
 				if (choose_mat < 0.8f)
 				{
 					// diffuse
-					(*list).Add(std::make_shared<Sphere>(center, 0.2f,
+					(*list).Add(std::make_shared<MovingSphere>(center, center+Vector3(0.0f,0.5f*DRand(),0.0f),0.0f,1.0f,0.2f,
 						std::make_shared<Lambertian>(RandomVector() * RandomVector())));
 				}
 				else if (choose_mat < 0.95f)
@@ -102,7 +104,7 @@ void Scene::Init(void)
 			}
 		}
 	}
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Dielectric>(1.5f)));
+	(*list).Add(std::make_shared<Sphere>(Vector3(0.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Dielectric>(1.2f)));
 	(*list).Add(std::make_shared<Sphere>(Vector3(-4.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Lambertian>(Vector3(0.4f, 0.2f, 0.1f))));
 	(*list).Add(std::make_shared<Sphere>(Vector3(4.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Metal>(Vector3(0.7f, 0.6f, 0.5f), 0.0f)));
 	_shape.reset(list);

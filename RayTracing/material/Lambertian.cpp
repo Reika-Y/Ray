@@ -9,7 +9,7 @@ Lambertian::Lambertian(const Vector3& c)
 bool Lambertian::Scatter(const Ray& ray, const HitRecord& rec, ScatterRec& srec) const
 {
 	Vector3 target = rec.p + rec.normal + RandomInUnitSphere();
-	srec.ray = Ray(rec.p, target - rec.p);
+	srec.ray = Ray(rec.p, target - rec.p, ray.Time());
 	srec.albedo = _albedo;
 	return true;
 }

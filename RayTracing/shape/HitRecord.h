@@ -4,6 +4,7 @@
 #include "../material/Material.h"
 
 class Ray;
+class AABB;
 
 // 衝突時の情報格納用
 struct HitRecord
@@ -24,4 +25,5 @@ public:
 	// <param = t_max> 光線の衝突範囲の終点
 	// <param = rec> 衝突情報
 	virtual bool Hit(const Ray& ray, float t_min, float t_max, HitRecord& rec)const = 0;
+	virtual bool BoundingBox(float t0, float t1, AABB& box)const = 0;
 };
