@@ -13,7 +13,9 @@
 #include "material/Lambertian.h"
 #include "material/Metal.h"
 #include "material/Dielectric.h"
-
+#include "Texture.h"
+#include "CheckerTexture.h"
+#include "ConstantTexture.h"
 // 再帰呼び出しの最大
 const int max_depth = 50;
 
@@ -55,7 +57,7 @@ void Scene::Render(void)
 		}
 	}
 
-	stbi_write_bmp("image/motion_blur.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/texture2.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
@@ -67,46 +69,13 @@ void Scene::Init(void)
 	Vector3 vup(0.0f, 1.0f, 0.0f);
 	auto size = (*_image).ImageSize();
 	float aspect = static_cast<float>(size.width) / static_cast<float>(size.height);
-	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20, aspect, 10, 0.0f, 1.0f);
+	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20, aspect, 0.f, 0.0f, 1.0f);
 
 	// Shape
 	ShapeList* list = new ShapeList();
-	int n = 11;
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.0f, -1000.0f, 0.0f), 1000.0f,
-		std::make_shared<Lambertian>(Vector3(0.5f, 0.5f, 0.5f))));
-	for (int i = -n; i < n; ++i)
-	{
-		for (int j = -n; j < n; ++j)
-		{
-			float choose_mat = DRand();
-			Vector3 center = { i + 0.9f * DRand(), 0.2f,j + 0.9f * DRand() };
-			if ((center - Vector3(4.0f, 0.2f, 0.0f)).Length() > 0.9f)
-			{
-				if (choose_mat < 0.8f)
-				{
-					// diffuse
-					(*list).Add(std::make_shared<MovingSphere>(center, center+Vector3(0.0f,0.5f*DRand(),0.0f),0.0f,1.0f,0.2f,
-						std::make_shared<Lambertian>(RandomVector() * RandomVector())));
-				}
-				else if (choose_mat < 0.95f)
-				{
-					// metal
-					(*list).Add(std::make_shared<Sphere>(center, 0.2f,
-						std::make_shared<Metal>((RandomVector() + Vector3(1.0f, 1.0f, 1.0f)) * 0.5f, DRand() * 0.5f)));
-
-				}
-				else
-				{
-					// grass
-					(*list).Add(std::make_shared<Sphere>(center, 0.2f,
-						std::make_shared<Dielectric>(1.5f)));
-				}
-			}
-		}
-	}
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Dielectric>(1.2f)));
-	(*list).Add(std::make_shared<Sphere>(Vector3(-4.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Lambertian>(Vector3(0.4f, 0.2f, 0.1f))));
-	(*list).Add(std::make_shared<Sphere>(Vector3(4.0f, 1.0f, 0.0f), 1.0f, std::make_shared<Metal>(Vector3(0.7f, 0.6f, 0.5f), 0.0f)));
+	auto checker = std::make_shared<CheckerTexture>(new ConstantTexture(Vector3(0.2f, 0.3f, 0.1f)), new ConstantTexture(Vector3(0.9f, 0.9f, 0.9f)));
+	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, -10.f, 0.f),10.f, std::make_shared<Lambertian>(checker)));
+	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, 10.f, 0.f),10.f, std::make_shared<Lambertian>(checker)));
 	_shape.reset(list);
 }
 

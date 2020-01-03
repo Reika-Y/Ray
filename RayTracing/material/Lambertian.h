@@ -1,15 +1,17 @@
 ﻿#pragma once
 #include "Material.h"
+#include <memory>
+#include "../Texture.h"
 
 // 拡散反射
 class Lambertian :
 	public Material
 {
 public:
-	Lambertian(const Vector3& c);
+	Lambertian(const std::shared_ptr<Texture>& c);
 	// 散乱のシュミレーション
 	bool Scatter(const Ray& ray, const HitRecord& rec, ScatterRec& srec)const override;
 private:
-	Vector3 _albedo;
+	std::shared_ptr<Texture>_albedo;
 };
 

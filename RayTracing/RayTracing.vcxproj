@@ -139,8 +139,10 @@
   <ItemGroup>
     <ClCompile Include="AABB.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CheckerTexture.cpp" />
     <ClCompile Include="common\Geometry.cpp" />
     <ClCompile Include="common\Vector3.cpp" />
+    <ClCompile Include="ConstantTexture.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageFilter.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -159,9 +161,11 @@
   <ItemGroup>
     <ClInclude Include="AABB.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CheckerTexture.h" />
     <ClInclude Include="common\Geometry.h" />
     <ClInclude Include="common\Size.h" />
     <ClInclude Include="common\Vector3.h" />
+    <ClInclude Include="ConstantTexture.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageFilter.h" />
     <ClInclude Include="material\Dielectric.h" />
@@ -176,6 +180,7 @@
     <ClInclude Include="shape\ShapeList.h" />
     <ClInclude Include="shape\Sphere.h" />
     <ClInclude Include="Template\Singleton.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
