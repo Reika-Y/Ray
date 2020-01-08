@@ -150,6 +150,8 @@
     <ClCompile Include="material\Lambertian.cpp" />
     <ClCompile Include="material\Material.cpp" />
     <ClCompile Include="material\Metal.cpp" />
+    <ClCompile Include="NoiseTexture.cpp" />
+    <ClCompile Include="Perlin.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shape\BvhNode.cpp" />
@@ -172,6 +174,8 @@
     <ClInclude Include="material\Lambertian.h" />
     <ClInclude Include="material\Material.h" />
     <ClInclude Include="material\Metal.h" />
+    <ClInclude Include="NoiseTexture.h" />
+    <ClInclude Include="Perlin.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shape\BvhNode.h" />

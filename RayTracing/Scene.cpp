@@ -13,9 +13,8 @@
 #include "material/Lambertian.h"
 #include "material/Metal.h"
 #include "material/Dielectric.h"
-#include "Texture.h"
-#include "CheckerTexture.h"
-#include "ConstantTexture.h"
+#include "NoiseTexture.h"
+
 // 再帰呼び出しの最大
 const int max_depth = 50;
 
@@ -57,7 +56,7 @@ void Scene::Render(void)
 		}
 	}
 
-	stbi_write_bmp("image/texture2.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/noise5.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
@@ -69,13 +68,13 @@ void Scene::Init(void)
 	Vector3 vup(0.0f, 1.0f, 0.0f);
 	auto size = (*_image).ImageSize();
 	float aspect = static_cast<float>(size.width) / static_cast<float>(size.height);
-	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20, aspect, 0.f, 0.0f, 1.0f);
+	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20, aspect, 0.f, 10.0f, 1.0f);
 
 	// Shape
 	ShapeList* list = new ShapeList();
-	auto checker = std::make_shared<CheckerTexture>(new ConstantTexture(Vector3(0.2f, 0.3f, 0.1f)), new ConstantTexture(Vector3(0.9f, 0.9f, 0.9f)));
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, -10.f, 0.f),10.f, std::make_shared<Lambertian>(checker)));
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, 10.f, 0.f),10.f, std::make_shared<Lambertian>(checker)));
+	auto checker = std::make_shared<NoiseTexture>(3.0f);
+	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, -1000.f, 0.f),1000.f, std::make_shared<Lambertian>(checker)));
+	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, 2.f, 0.f),2.f, std::make_shared<Lambertian>(checker)));
 	_shape.reset(list);
 }
 
