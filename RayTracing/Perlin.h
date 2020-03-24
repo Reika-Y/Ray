@@ -1,40 +1,48 @@
 ﻿#pragma once
 #include "common/Geometry.h"
 
-inline float TrilinearInterp(Vector3 c[2][2][2], float u, float v, float w)
-{
-	float uu = u * u * (3 - 2 * u);
-	float vv = v * v * (3 - 2 * v);
-	float ww = w * w * (3 - 2 * w);
-	float accum = 0.f;
-	for (int i = 0; i < 2; i++)
-	{
-		for (int j = 0; j < 2; j++)
-		{
-			for (int k = 0; k < 2; k++)
-			{
-				Vector3 weight(u - i,v - j,w - k );
-				accum += (i * uu + (1 - i) * (1 - uu)) *
-						 (j * vv + (1 - j) * (1 - vv)) *
-						 (k * ww + (1 - k) * (1 - ww)) * Dot(c[i][j][k], weight);
-			}
-		}
-	}
-	return accum;
-}
-
 class Perlin
 {
 public:
 	Perlin();
 	float Noise(const Vector3& p)const;
-	Vector3* ranvec;
+
+private:
+	float* ranfloat;
 	int* perm_x;
 	int* perm_y;
 	int* perm_z;
 };
 
-Vector3* PerlinGenerate(void);
-void Permute(int* p, int n);
-int* PerlinGeneratePerm(void);
+static float* PerlinGenerate()
+{
+	float* p = new float[256];
+	for (int i = 0; i < 256; i++)
+	{
+		p[i] = DRand();
+	}
+	return p;
+}
 
+static void Permute(int* p, int n)
+{
+	for (int i = n - 1; i > 0; i--)
+	{
+		int target = int(DRand() * (i + 1));
+		int tmp = p[i];
+		p[i] = p[target];
+		p[target] = tmp;
+	}
+	return;
+}
+
+static int* PerlinGeneratePerm()
+{
+	int* p = new int[256];
+	for (int i = 0; i < 256; i++)
+	{
+		p[i] = i;
+	}
+	Permute(p, 256);
+	return p;
+}
