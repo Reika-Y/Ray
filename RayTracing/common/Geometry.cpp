@@ -1,7 +1,7 @@
 ﻿#include "Geometry.h"
 #include <cmath>
 
-const int rand_max = 32767;
+const float rand_max = 32767;
 
 float DRand()
 {

@@ -56,7 +56,7 @@ void Scene::Render(void)
 		}
 	}
 
-	stbi_write_bmp("image/noise1.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/smooth.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
