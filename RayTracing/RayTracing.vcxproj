@@ -147,6 +147,7 @@
     <ClCompile Include="ConstantTexture.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageFilter.cpp" />
+    <ClCompile Include="ImageTexture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="material\Dielectric.cpp" />
     <ClCompile Include="material\Lambertian.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="ConstantTexture.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageFilter.h" />
+    <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="material\Dielectric.h" />
     <ClInclude Include="material\Lambertian.h" />
     <ClInclude Include="material\Material.h" />

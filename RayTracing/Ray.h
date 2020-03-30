@@ -20,3 +20,5 @@ private:
 	float _time;			// 残存時間
 };
 
+// 球状マッピングしたテクスチャ座標を取得する
+void GetSphereUv(const Vector3& p, float& u, float& v);

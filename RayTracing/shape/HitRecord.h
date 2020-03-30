@@ -10,6 +10,8 @@ class AABB;
 struct HitRecord
 {
 	float t;		// 光線
+	float u;
+	float v;
 	Vector3 p;		// 衝突位置
 	Vector3 normal;	// 衝突位置の法線
 	std::shared_ptr<Material> mat;		// 材質

@@ -38,6 +38,7 @@ bool Sphere::Hit(const Ray& ray, float t_min, float t_max, HitRecord& rec) const
 			rec.p = ray.PointAtParameter(rec.t);
 			rec.normal = (rec.p - _center) / _radius;
 			rec.mat = _mat;
+			GetSphereUv(rec.normal, rec.u, rec.v);
 			return true;
 		}
 		tmp = (-b + root) / (2.0f * a);
@@ -45,8 +46,9 @@ bool Sphere::Hit(const Ray& ray, float t_min, float t_max, HitRecord& rec) const
 		{
 			rec.t = tmp;
 			rec.p = ray.PointAtParameter(rec.t);
-			rec.normal = (rec.p - _center) / _radius;
+			rec.normal = (rec.normal - _center) / _radius;
 			rec.mat = _mat;
+			GetSphereUv(rec.normal, rec.u, rec.v);
 			return true;
 		}
 	}

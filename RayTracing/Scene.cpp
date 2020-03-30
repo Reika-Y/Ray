@@ -14,6 +14,7 @@
 #include "material/Metal.h"
 #include "material/Dielectric.h"
 #include "NoiseTexture.h"
+#include "ImageTexture.h"
 
 // 再帰呼び出しの最大
 const int max_depth = 50;
@@ -56,7 +57,7 @@ void Scene::Render(void)
 		}
 	}
 
-	stbi_write_bmp("image/hermite_cubic2.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/earth.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
@@ -72,8 +73,10 @@ void Scene::Init(void)
 
 	// Shape
 	ShapeList* list = new ShapeList();
-	auto checker = std::make_shared<NoiseTexture>(3.0f);
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, -1000.f, 0.f),1000.f, std::make_shared<Lambertian>(checker)));
+	int nx, ny, nn;
+	unsigned char* tex_data = stbi_load("asset/earth.jpg", &nx, &ny, &nn, 0);
+	auto checker = std::make_shared<ImageTexture>(tex_data, nx, ny);
+	//(*list).Add(std::make_shared<Sphere>(Vector3(0.f, -1000.f, 0.f),1000.f, std::make_shared<Lambertian>(checker)));
 	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, 2.f, 0.f),2.f, std::make_shared<Lambertian>(checker)));
 	_shape.reset(list);
 }

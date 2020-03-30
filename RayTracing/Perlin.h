@@ -40,37 +40,14 @@ inline float PerlinInterp(Vector3 c[2][2][2], float u, float v, float w)
 		}
 	}
 
-	// 黒すぎるから下駄はかせる
-	accum += 0.5;
-	accum = Clamp(accum, 0, 1);
-
 	return accum;
 }
 
 class Perlin
 {
 public:
-	float Noise(const Vector3& p)const
-	{
-		float u = p.x - floor(p.x);
-		float v = p.y - floor(p.y);
-		float w = p.z - floor(p.z);
-		int i = int(floor(p.x));
-		int j = int(floor(p.y));
-		int k = int(floor(p.z));
-		Vector3 c[2][2][2];
-		for (int di = 0; di < 2; di++)
-		{
-			for (int dj = 0; dj < 2; dj++)
-			{
-				for (int dk = 0; dk < 2; dk++)
-				{
-					c[di][dj][dk] = ranvec[perm_x[(i + di) & 255] ^ perm_y[(j + dj) & 255] ^ perm_z[(k + dk) & 255]];
-				}
-			}
-		}
-		return PerlinInterp(c, u, v, w);
-	}
+	float Noise(const Vector3& p)const;
+	float Turb(const Vector3& p, int depth = 7)const;
 
 	static Vector3* ranvec;
 	static int* perm_x;
