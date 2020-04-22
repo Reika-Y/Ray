@@ -7,7 +7,7 @@ int main()
 {
 	int nx = 400;
 	int ny = 200;
-	int ns = 100;
+	int ns = 500;
 
 	std::cout << "処理開始" << std::endl;
 	Timer time;

@@ -96,6 +96,21 @@
     <ClCompile Include="ImageTexture.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="material\DiffuseLight.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\XyRect.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\YzRect.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\XzRect.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\FlipNormals.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
@@ -175,6 +190,21 @@
     </ClInclude>
     <ClInclude Include="ImageTexture.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="material\DiffuseLight.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\XyRect.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\YzRect.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\XzRect.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\FlipNormals.h">
+      <Filter>shape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

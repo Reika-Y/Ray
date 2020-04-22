@@ -17,5 +17,7 @@ class Material
 public:
 	// 散乱のシュミレーション
 	virtual bool Scatter(const Ray& ray, const HitRecord& rec, ScatterRec& srec)const = 0;
+	// 発光色を返す
+	virtual Vector3 Emitted(float u, float v, const Vector3& p)const;
 };
 

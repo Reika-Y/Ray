@@ -53,6 +53,8 @@ float Degrees(float rad);
 
 float Schlick(float cos, float ref_idx);
 
+Vector3 Clamp(Vector3 x, Vector3 a = Vector3(0, 0, 0), Vector3 b = Vector3(1, 1, 1));
+
 Vector3 RandomVector(void);
 
 Vector3 RandomInUnitSphere(void);

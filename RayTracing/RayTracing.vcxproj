@@ -150,6 +150,7 @@
     <ClCompile Include="ImageTexture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="material\Dielectric.cpp" />
+    <ClCompile Include="material\DiffuseLight.cpp" />
     <ClCompile Include="material\Lambertian.cpp" />
     <ClCompile Include="material\Material.cpp" />
     <ClCompile Include="material\Metal.cpp" />
@@ -158,9 +159,13 @@
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shape\BvhNode.cpp" />
+    <ClCompile Include="shape\FlipNormals.cpp" />
     <ClCompile Include="shape\MovingSphere.cpp" />
     <ClCompile Include="shape\ShapeList.cpp" />
     <ClCompile Include="shape\Sphere.cpp" />
+    <ClCompile Include="shape\XyRect.cpp" />
+    <ClCompile Include="shape\XzRect.cpp" />
+    <ClCompile Include="shape\YzRect.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +180,7 @@
     <ClInclude Include="ImageFilter.h" />
     <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="material\Dielectric.h" />
+    <ClInclude Include="material\DiffuseLight.h" />
     <ClInclude Include="material\Lambertian.h" />
     <ClInclude Include="material\Material.h" />
     <ClInclude Include="material\Metal.h" />
@@ -183,10 +189,14 @@
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shape\BvhNode.h" />
+    <ClInclude Include="shape\FlipNormals.h" />
     <ClInclude Include="shape\HitRecord.h" />
     <ClInclude Include="shape\MovingSphere.h" />
     <ClInclude Include="shape\ShapeList.h" />
     <ClInclude Include="shape\Sphere.h" />
+    <ClInclude Include="shape\XyRect.h" />
+    <ClInclude Include="shape\XzRect.h" />
+    <ClInclude Include="shape\YzRect.h" />
     <ClInclude Include="Template\Singleton.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />

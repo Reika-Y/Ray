@@ -2,10 +2,13 @@
 #include <memory>
 #include "common/Geometry.h"
 #include "Ray.h"
+#include "material/Material.h"
 
 class Image;
 class Camera;
 class Shape;
+
+using Mat = std::shared_ptr<Material>;
 
 class Scene
 {

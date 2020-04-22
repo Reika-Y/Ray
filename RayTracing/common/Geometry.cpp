@@ -92,6 +92,11 @@ float Schlick(float cos, float ref_idx)
 	return r0 + (1 - r0) * Pow5((1 - cos));
 }
 
+Vector3 Clamp(Vector3 x, Vector3 a, Vector3 b)
+{
+	return Vector3(Clamp(x.x, a.x, b.x), Clamp(x.y, a.y, b.y), Clamp(x.z, a.z, b.z));
+}
+
 Vector3 RandomVector(void)
 {
 	return Vector3(DRand(), DRand(), DRand());

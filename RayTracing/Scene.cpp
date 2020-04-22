@@ -9,12 +9,18 @@
 #include "shape/ShapeList.h"
 #include "shape/Sphere.h"
 #include "shape/MovingSphere.h"
+#include "shape/XyRect.h"
+#include "shape/XzRect.h"
+#include "shape/YzRect.h"
+#include "shape/FlipNormals.h"
 #include "material/Material.h"
 #include "material/Lambertian.h"
 #include "material/Metal.h"
 #include "material/Dielectric.h"
+#include "material/DiffuseLight.h"
 #include "NoiseTexture.h"
 #include "ImageTexture.h"
+#include "ConstantTexture.h"
 
 // 再帰呼び出しの最大
 const int max_depth = 50;
@@ -53,31 +59,37 @@ void Scene::Render(void)
 			}
 
 			c = c / static_cast<float>(_samples);
+			c = Clamp(c);
 			(*_image).Write(i, (size.height - j - 1), c.x, c.y, c.z);
 		}
 	}
 
-	stbi_write_bmp("image/earth.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/cornellBox.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
 void Scene::Init(void)
 {
 	// Camera
-	Vector3 lookfrom(13.0f, 2.0f, 3.0f);
-	Vector3 lookat(0.0f, 0.0f, 0.0f);
+	Vector3 lookfrom(278, 278, -800);
+	Vector3 lookat(278, 278, 0.0f);
 	Vector3 vup(0.0f, 1.0f, 0.0f);
 	auto size = (*_image).ImageSize();
 	float aspect = static_cast<float>(size.width) / static_cast<float>(size.height);
-	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 20, aspect, 0.f, 10.0f, 1.0f);
+	_camera = std::make_unique<Camera>(lookfrom, lookat, vup, 40, aspect, 0.f, 10.0f, 0.0f, 1.0f);
 
-	// Shape
+	// Shapes
 	ShapeList* list = new ShapeList();
-	int nx, ny, nn;
-	unsigned char* tex_data = stbi_load("asset/earth.jpg", &nx, &ny, &nn, 0);
-	auto checker = std::make_shared<ImageTexture>(tex_data, nx, ny);
-	//(*list).Add(std::make_shared<Sphere>(Vector3(0.f, -1000.f, 0.f),1000.f, std::make_shared<Lambertian>(checker)));
-	(*list).Add(std::make_shared<Sphere>(Vector3(0.f, 2.f, 0.f),2.f, std::make_shared<Lambertian>(checker)));
+	Mat red = std::make_shared<Lambertian>(std::make_shared<ConstantTexture>(Vector3(0.65, 0.05, 0.05)));
+	Mat white = std::make_shared<Lambertian>(std::make_shared<ConstantTexture>(Vector3(0.73, 0.73, 0.73)));
+	Mat green = std::make_shared<Lambertian>(std::make_shared<ConstantTexture>(Vector3(0.12, 0.45, 0.15)));
+	Mat light = std::make_shared<DiffuseLight>(new ConstantTexture(Vector3(15, 15, 15)));
+	(*list).Add(std::make_shared<XzRect>(213, 343, 227, 332, 554, light));
+	(*list).Add(std::make_shared<FlipNormals>(new YzRect(0, 555, 0, 555, 555, green)));
+	(*list).Add(std::make_shared<YzRect>(0, 555, 0, 555, 0, red));
+	(*list).Add(std::make_shared<FlipNormals>(new XzRect(0, 555, 0, 555, 555, white)));
+	(*list).Add(std::make_shared<XzRect>(0, 555, 0, 555, 0, white));
+	(*list).Add(std::make_shared<FlipNormals>(new XyRect(0, 555, 0, 555, 555, white)));
 	_shape.reset(list);
 }
 
@@ -88,14 +100,15 @@ Vector3 Scene::GetColor(const Ray& ray, const Shape* shape,int depth)
 	// 誤差による反射方向のずれを防ぐ
 	if ((*shape).Hit(ray, 0.001f, FLT_MAX, rec))
 	{
+		Vector3 emitted = rec.mat->Emitted(rec.u, rec.v, rec.p);
 		ScatterRec srec;
 		if (depth < max_depth && (*rec.mat).Scatter(ray, rec, srec))
 		{
-			return srec.albedo * GetColor(srec.ray, shape, ++depth);
+			return emitted + srec.albedo * GetColor(srec.ray, shape, ++depth);
 		}
-		return Vector3{ 0.0f,0.0f,0.0f };
+		return emitted;
 	}
-	return BackGroundSky(ray.Direction());
+	return Vector3(0, 0, 0);
 }
 
 // 背景色の取得
@@ -106,4 +119,3 @@ Vector3 Scene::BackGroundSky(const Vector3& dir)
 	auto t = 0.5f * (dir.y + 1.0f);
 	return Lerp(Vector3(0.5f, 0.7f, 1.0f), Vector3(1, 1, 1), t);
 }
-
