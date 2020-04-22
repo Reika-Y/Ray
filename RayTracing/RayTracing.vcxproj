@@ -158,6 +158,7 @@
     <ClCompile Include="Perlin.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="shape\Box.cpp" />
     <ClCompile Include="shape\BvhNode.cpp" />
     <ClCompile Include="shape\FlipNormals.cpp" />
     <ClCompile Include="shape\MovingSphere.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Perlin.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="shape\Box.h" />
     <ClInclude Include="shape\BvhNode.h" />
     <ClInclude Include="shape\FlipNormals.h" />
     <ClInclude Include="shape\HitRecord.h" />

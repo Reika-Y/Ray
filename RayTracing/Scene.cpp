@@ -12,6 +12,7 @@
 #include "shape/XyRect.h"
 #include "shape/XzRect.h"
 #include "shape/YzRect.h"
+#include "shape/Box.h"
 #include "shape/FlipNormals.h"
 #include "material/Material.h"
 #include "material/Lambertian.h"
@@ -64,7 +65,7 @@ void Scene::Render(void)
 		}
 	}
 
-	stbi_write_bmp("image/cornellBox.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/twoBlocks.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
@@ -90,6 +91,8 @@ void Scene::Init(void)
 	(*list).Add(std::make_shared<FlipNormals>(new XzRect(0, 555, 0, 555, 555, white)));
 	(*list).Add(std::make_shared<XzRect>(0, 555, 0, 555, 0, white));
 	(*list).Add(std::make_shared<FlipNormals>(new XyRect(0, 555, 0, 555, 555, white)));
+	(*list).Add(std::make_shared<Box>(Vector3(130, 0, 65), Vector3(295, 165, 230), white));
+	(*list).Add(std::make_shared<Box>(Vector3(265, 0, 295), Vector3(430, 330, 460), white));
 	_shape.reset(list);
 }
 

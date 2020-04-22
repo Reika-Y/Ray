@@ -111,6 +111,9 @@
     <ClCompile Include="shape\FlipNormals.cpp">
       <Filter>shape</Filter>
     </ClCompile>
+    <ClCompile Include="shape\Box.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
@@ -204,6 +207,9 @@
       <Filter>shape</Filter>
     </ClInclude>
     <ClInclude Include="shape\FlipNormals.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Box.h">
       <Filter>shape</Filter>
     </ClInclude>
   </ItemGroup>
