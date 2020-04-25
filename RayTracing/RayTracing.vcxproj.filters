@@ -114,6 +114,12 @@
     <ClCompile Include="shape\Box.cpp">
       <Filter>shape</Filter>
     </ClCompile>
+    <ClCompile Include="shape\Translate.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\RotateY.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Image.h">
@@ -210,6 +216,12 @@
       <Filter>shape</Filter>
     </ClInclude>
     <ClInclude Include="shape\Box.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Translate.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\RotateY.h">
       <Filter>shape</Filter>
     </ClInclude>
   </ItemGroup>

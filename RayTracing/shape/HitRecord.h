@@ -6,6 +6,9 @@
 class Ray;
 class AABB;
 
+class Shape;
+using ShapePtr = std::shared_ptr<Shape>;
+
 // 衝突時の情報格納用
 struct HitRecord
 {

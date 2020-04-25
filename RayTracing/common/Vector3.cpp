@@ -19,6 +19,22 @@ Vector3 operator-(const Vector3& va, const Vector3 vb) {
 	return Vector3(va.x - vb.x, va.y - vb.y, va.z - vb.z);
 }
 
+float Vector3::operator[](int k)
+{
+	if (k == 0)
+	{
+		return x;
+	}
+	if (k == 1)
+	{
+		return y;
+	}
+	if (k == 2)
+	{
+		return z;
+	}
+}
+
 float
 Vector3::Length()const {
 	return sqrt(x * x + y * y + z * z);

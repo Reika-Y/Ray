@@ -5,6 +5,9 @@ struct Vector3 {
 	Vector3() :x(0), y(0), z(0) {}
 	Vector3(float inx, float iny, float inz) :x(inx), y(iny), z(inz) {}
 	float x, y, z;
+
+	float operator[](int k);
+
 	///ベクトルの大きさを返します
 	float Length()const;
 

@@ -162,8 +162,10 @@
     <ClCompile Include="shape\BvhNode.cpp" />
     <ClCompile Include="shape\FlipNormals.cpp" />
     <ClCompile Include="shape\MovingSphere.cpp" />
+    <ClCompile Include="shape\RotateY.cpp" />
     <ClCompile Include="shape\ShapeList.cpp" />
     <ClCompile Include="shape\Sphere.cpp" />
+    <ClCompile Include="shape\Translate.cpp" />
     <ClCompile Include="shape\XyRect.cpp" />
     <ClCompile Include="shape\XzRect.cpp" />
     <ClCompile Include="shape\YzRect.cpp" />
@@ -194,8 +196,10 @@
     <ClInclude Include="shape\FlipNormals.h" />
     <ClInclude Include="shape\HitRecord.h" />
     <ClInclude Include="shape\MovingSphere.h" />
+    <ClInclude Include="shape\RotateY.h" />
     <ClInclude Include="shape\ShapeList.h" />
     <ClInclude Include="shape\Sphere.h" />
+    <ClInclude Include="shape\Translate.h" />
     <ClInclude Include="shape\XyRect.h" />
     <ClInclude Include="shape\XzRect.h" />
     <ClInclude Include="shape\YzRect.h" />
