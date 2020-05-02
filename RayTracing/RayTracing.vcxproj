@@ -151,6 +151,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="material\Dielectric.cpp" />
     <ClCompile Include="material\DiffuseLight.cpp" />
+    <ClCompile Include="material\Isotropic.cpp" />
     <ClCompile Include="material\Lambertian.cpp" />
     <ClCompile Include="material\Material.cpp" />
     <ClCompile Include="material\Metal.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shape\Box.cpp" />
     <ClCompile Include="shape\BvhNode.cpp" />
+    <ClCompile Include="shape\ConstantMedium.cpp" />
     <ClCompile Include="shape\FlipNormals.cpp" />
     <ClCompile Include="shape\MovingSphere.cpp" />
     <ClCompile Include="shape\RotateY.cpp" />
@@ -184,6 +186,7 @@
     <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="material\Dielectric.h" />
     <ClInclude Include="material\DiffuseLight.h" />
+    <ClInclude Include="material\Isotropic.h" />
     <ClInclude Include="material\Lambertian.h" />
     <ClInclude Include="material\Material.h" />
     <ClInclude Include="material\Metal.h" />
@@ -193,6 +196,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shape\Box.h" />
     <ClInclude Include="shape\BvhNode.h" />
+    <ClInclude Include="shape\ConstantMedium.h" />
     <ClInclude Include="shape\FlipNormals.h" />
     <ClInclude Include="shape\HitRecord.h" />
     <ClInclude Include="shape\MovingSphere.h" />

@@ -81,9 +81,6 @@
     <ClCompile Include="shape\BvhNode.cpp">
       <Filter>shape</Filter>
     </ClCompile>
-    <ClCompile Include="ConstantTexture.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="CheckerTexture.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -119,6 +116,15 @@
     </ClCompile>
     <ClCompile Include="shape\RotateY.cpp">
       <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\ConstantMedium.cpp">
+      <Filter>shape</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Isotropic.cpp">
+      <Filter>material</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,9 +191,6 @@
     <ClInclude Include="Texture.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ConstantTexture.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CheckerTexture.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -223,6 +226,15 @@
     </ClInclude>
     <ClInclude Include="shape\RotateY.h">
       <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\ConstantMedium.h">
+      <Filter>shape</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Isotropic.h">
+      <Filter>material</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

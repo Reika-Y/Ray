@@ -109,7 +109,7 @@ Vector3 RandomInUnitSphere(void)
 	{
 		p = RandomVector() * 2.0f - Vector3(1.0f, 1.0f, 1.0f);
 
-	} while (p.LengthSqr() >= 1.0f);
+	} while (Dot(p,p) >= 1.0f);
 	return p;
 }
 

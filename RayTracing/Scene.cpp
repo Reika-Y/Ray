@@ -16,6 +16,7 @@
 #include "shape/FlipNormals.h"
 #include "shape/Translate.h"
 #include "shape/RotateY.h"
+#include "shape/ConstantMedium.h"
 #include "material/Material.h"
 #include "material/Lambertian.h"
 #include "material/Metal.h"
@@ -67,7 +68,7 @@ void Scene::Render(void)
 		}
 	}
 
-	stbi_write_bmp("image/rotate.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
+	stbi_write_bmp("image/volume.bmp", size.width, size.height, sizeof(Color), (*_image).Pixcels());
 }
 
 // レンダリングするときに一度だけ呼ばれる関数
@@ -86,15 +87,17 @@ void Scene::Init(void)
 	Mat red = std::make_shared<Lambertian>(std::make_shared<ConstantTexture>(Vector3(0.65, 0.05, 0.05)));
 	Mat white = std::make_shared<Lambertian>(std::make_shared<ConstantTexture>(Vector3(0.73, 0.73, 0.73)));
 	Mat green = std::make_shared<Lambertian>(std::make_shared<ConstantTexture>(Vector3(0.12, 0.45, 0.15)));
-	Mat light = std::make_shared<DiffuseLight>(new ConstantTexture(Vector3(15, 15, 15)));
-	(*list).Add(std::make_shared<XzRect>(213, 343, 227, 332, 554, light));
+	Mat light = std::make_shared<DiffuseLight>(new ConstantTexture(Vector3(7, 7, 7)));
+	(*list).Add(std::make_shared<XzRect>(113, 443, 127, 432, 554, light));
 	(*list).Add(std::make_shared<FlipNormals>(new YzRect(0, 555, 0, 555, 555, green)));
 	(*list).Add(std::make_shared<YzRect>(0, 555, 0, 555, 0, red));
 	(*list).Add(std::make_shared<FlipNormals>(new XzRect(0, 555, 0, 555, 555, white)));
 	(*list).Add(std::make_shared<XzRect>(0, 555, 0, 555, 0, white));
 	(*list).Add(std::make_shared<FlipNormals>(new XyRect(0, 555, 0, 555, 555, white)));
-	(*list).Add(std::make_shared<Translate>(std::make_shared<RotateY>(std::make_shared<Box>(Vector3(0, 0, 0), Vector3(165, 165, 165), white), -18), Vector3(130, 0, 65)));
-	(*list).Add(std::make_shared<Translate>(std::make_shared<RotateY>(std::make_shared<Box>(Vector3(0, 0, 0), Vector3(165, 330, 165), white), 15), Vector3(265, 0, 295)));
+	ShapePtr b1 = std::make_shared<Translate>(std::make_shared<RotateY>(std::make_shared<Box>(Vector3(0, 0, 0), Vector3(165, 165, 165), white), -18), Vector3(130, 0, 65));
+	ShapePtr b2 = std::make_shared<Translate>(std::make_shared<RotateY>(std::make_shared<Box>(Vector3(0, 0, 0), Vector3(165, 330, 165), white), 15), Vector3(265, 0, 295));
+	(*list).Add(std::make_shared<ConstantMedium>(b2, 0.01, new ConstantTexture(Vector3(1.0, 1.0, 1.0))));
+	(*list).Add(std::make_shared<ConstantMedium>(b1, 0.01, new ConstantTexture(Vector3(0.f, 0.f, 0.f))));
 	_shape.reset(list);
 }
 
