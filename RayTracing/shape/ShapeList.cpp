@@ -32,6 +32,11 @@ void ShapeList::Add(const ShapePtr& shape)
 	_shapes.emplace_back(shape);
 }
 
+const size_t ShapeList::Count(void)
+{
+	return _shapes.size();
+}
+
 bool ShapeList::BoundingBox(float t0, float t1, AABB& box) const
 {
 	if (!_shapes.size())
@@ -62,4 +67,9 @@ bool ShapeList::BoundingBox(float t0, float t1, AABB& box) const
 		}
 	}
 	return true;
+}
+
+std::vector<ShapePtr> ShapeList::Vector(void)
+{
+	return _shapes;
 }

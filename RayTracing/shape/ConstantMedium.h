@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "HitRecord.h"
-#include "../Texture.h"
+#include "../texture/Texture.h"
 
 class ConstantMedium :
 	public Shape

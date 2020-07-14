@@ -6,11 +6,15 @@ Dielectric::Dielectric(float ri)
 	_ri = ri;
 }
 
+// 散乱のシュミレーション
 bool Dielectric::Scatter(const Ray& ray, const HitRecord& rec, ScatterRec& srec) const
 {
+	// 外向き法線
 	Vector3 outoutward_normal = { 0.0f,0.0f,0.0f };
+	// 反射ベクトル
 	Vector3 reflected = Reflect(ray.Direction(), rec.normal);
 	float ni_over_nt = 0.0f;
+	// コサイン
 	float cos = 0.0f;
 	if (Dot(ray.Direction(), rec.normal) > 0)
 	{

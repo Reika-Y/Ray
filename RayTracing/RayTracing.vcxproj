@@ -141,13 +141,10 @@
   <ItemGroup>
     <ClCompile Include="AABB.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="CheckerTexture.cpp" />
     <ClCompile Include="common\Geometry.cpp" />
     <ClCompile Include="common\Vector3.cpp" />
-    <ClCompile Include="ConstantTexture.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageFilter.cpp" />
-    <ClCompile Include="ImageTexture.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="material\Dielectric.cpp" />
     <ClCompile Include="material\DiffuseLight.cpp" />
@@ -155,8 +152,6 @@
     <ClCompile Include="material\Lambertian.cpp" />
     <ClCompile Include="material\Material.cpp" />
     <ClCompile Include="material\Metal.cpp" />
-    <ClCompile Include="NoiseTexture.cpp" />
-    <ClCompile Include="Perlin.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shape\Box.cpp" />
@@ -171,27 +166,28 @@
     <ClCompile Include="shape\XyRect.cpp" />
     <ClCompile Include="shape\XzRect.cpp" />
     <ClCompile Include="shape\YzRect.cpp" />
+    <ClCompile Include="texture\CheckerTexture.cpp" />
+    <ClCompile Include="texture\ConstantTexture.cpp" />
+    <ClCompile Include="texture\ImageTexture.cpp" />
+    <ClCompile Include="texture\NoiseTexture.cpp" />
+    <ClCompile Include="texture\Perlin.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABB.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="CheckerTexture.h" />
     <ClInclude Include="common\Geometry.h" />
     <ClInclude Include="common\Size.h" />
     <ClInclude Include="common\Vector3.h" />
-    <ClInclude Include="ConstantTexture.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageFilter.h" />
-    <ClInclude Include="ImageTexture.h" />
     <ClInclude Include="material\Dielectric.h" />
     <ClInclude Include="material\DiffuseLight.h" />
     <ClInclude Include="material\Isotropic.h" />
     <ClInclude Include="material\Lambertian.h" />
     <ClInclude Include="material\Material.h" />
+    <ClInclude Include="material\Materials.h" />
     <ClInclude Include="material\Metal.h" />
-    <ClInclude Include="NoiseTexture.h" />
-    <ClInclude Include="Perlin.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="shape\Box.h" />
@@ -202,13 +198,19 @@
     <ClInclude Include="shape\MovingSphere.h" />
     <ClInclude Include="shape\RotateY.h" />
     <ClInclude Include="shape\ShapeList.h" />
+    <ClInclude Include="shape\Shapes.h" />
     <ClInclude Include="shape\Sphere.h" />
     <ClInclude Include="shape\Translate.h" />
     <ClInclude Include="shape\XyRect.h" />
     <ClInclude Include="shape\XzRect.h" />
     <ClInclude Include="shape\YzRect.h" />
-    <ClInclude Include="Template\Singleton.h" />
-    <ClInclude Include="Texture.h" />
+    <ClInclude Include="texture\CheckerTexture.h" />
+    <ClInclude Include="texture\ConstantTexture.h" />
+    <ClInclude Include="texture\ImageTexture.h" />
+    <ClInclude Include="texture\NoiseTexture.h" />
+    <ClInclude Include="texture\Perlin.h" />
+    <ClInclude Include="texture\Texture.h" />
+    <ClInclude Include="texture\Textures.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

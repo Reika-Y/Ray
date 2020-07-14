@@ -1,6 +1,6 @@
-﻿
+﻿#pragma once
 #include <math.h>
-#include "common/Geometry.h"
+#include "../common/Geometry.h"
 
 inline float TrilinearInterp(float c[2][2][2], float u, float v, float w)
 {

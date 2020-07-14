@@ -53,10 +53,13 @@ float Degrees(float rad);
 
 float Schlick(float cos, float ref_idx);
 
+// 0～1を満たすベクトルを返す
 Vector3 Clamp(Vector3 x, Vector3 a = Vector3(0, 0, 0), Vector3 b = Vector3(1, 1, 1));
 
+// 一様乱数を使ってベクトルを作成
 Vector3 RandomVector(void);
 
+// 単位球の中の任意の点を生成
 Vector3 RandomInUnitSphere(void);
 
 // 反射ベクトルを返す

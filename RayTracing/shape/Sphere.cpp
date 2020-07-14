@@ -9,7 +9,7 @@ Sphere::Sphere()
 	_mat = nullptr;
 }
 
-Sphere::Sphere(const Vector3& c, float r, const std::shared_ptr<Material>& mat)
+Sphere::Sphere(const Vector3& c, float r, std::shared_ptr<Material> mat)
 {
 	_center = c;
 	_radius = r;

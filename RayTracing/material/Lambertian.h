@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Material.h"
 #include <memory>
-#include "../Texture.h"
+#include "../texture/Texture.h"
 
 // 拡散反射
 class Lambertian :

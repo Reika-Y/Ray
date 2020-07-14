@@ -6,6 +6,7 @@ Isotropic::Isotropic(Texture* a)
 	_albedo = a;
 }
 
+// 散乱のシュミレーション
 bool Isotropic::Scatter(const Ray& ray, const HitRecord& rec, ScatterRec& srec) const
 {
 	srec.ray = Ray(rec.p, RandomInUnitSphere(),ray.Time());

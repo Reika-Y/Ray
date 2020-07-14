@@ -10,7 +10,7 @@ public:
 	Sphere();
 	// <param = c> 中心座標
 	// <param = r> 半径
-	Sphere(const Vector3& c, float r, const std::shared_ptr<Material>&mat);
+	Sphere(const Vector3& c, float r, std::shared_ptr<Material> mat);
 	~Sphere();
 	// 衝突関数
 	// <param = ray> 光線

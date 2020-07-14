@@ -1,9 +1,6 @@
 ﻿#include "BvhNode.h"
 #include "../common/Geometry.h"
 
-BvhNode::BvhNode()
-{
-}
 
 BvhNode::BvhNode(Shape** l, int n, float time0, float time1)
 {

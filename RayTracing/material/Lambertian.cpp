@@ -6,6 +6,7 @@ Lambertian::Lambertian(const std::shared_ptr<Texture>& c)
 	_albedo = c;
 }
 
+// 散乱のシュミレーション
 bool Lambertian::Scatter(const Ray& ray, const HitRecord& rec, ScatterRec& srec) const
 {
 	Vector3 target = rec.p + rec.normal + RandomInUnitSphere();

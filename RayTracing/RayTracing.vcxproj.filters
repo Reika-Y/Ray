@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="template">
-      <UniqueIdentifier>{1dc2c6b0-c9f3-4acb-97f6-ad6199b0f38f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="common">
       <UniqueIdentifier>{970e4a26-f16f-4230-8768-8d9b45e4c68d}</UniqueIdentifier>
     </Filter>
@@ -25,11 +22,29 @@
     <Filter Include="shape">
       <UniqueIdentifier>{1ba15cfc-8088-4ebc-a83b-4e76ef7392aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="material\header">
+      <UniqueIdentifier>{24010435-73ed-4910-90e6-8af323b39acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="material\cpp">
+      <UniqueIdentifier>{cc3ab821-f83a-49f8-9d70-e59e0c4be44c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shape\header">
+      <UniqueIdentifier>{ea4b9591-9899-4d74-9814-ae0dfcc3f44e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shape\cpp">
+      <UniqueIdentifier>{7ad11553-67bf-4102-b2be-6b1dd1c7cfd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="texture">
+      <UniqueIdentifier>{06b4abb9-754e-48f3-b074-65a3da277441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="texture\header">
+      <UniqueIdentifier>{0d81c416-c25c-4fdb-ae35-7337fd656fb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="texture\cpp">
+      <UniqueIdentifier>{8b371ad4-e6b0-47bb-a859-f8ca20fca4e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Image.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -51,80 +66,83 @@
     <ClCompile Include="common\Geometry.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="material\Dielectric.cpp">
-      <Filter>material</Filter>
-    </ClCompile>
-    <ClCompile Include="material\Lambertian.cpp">
-      <Filter>material</Filter>
-    </ClCompile>
-    <ClCompile Include="material\Metal.cpp">
-      <Filter>material</Filter>
-    </ClCompile>
-    <ClCompile Include="material\Material.cpp">
-      <Filter>material</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\Sphere.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\ShapeList.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\MovingSphere.cpp">
-      <Filter>shape</Filter>
     </ClCompile>
     <ClCompile Include="AABB.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="shape\BvhNode.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="CheckerTexture.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Perlin.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="NoiseTexture.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageTexture.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="material\Dielectric.cpp">
+      <Filter>material\cpp</Filter>
     </ClCompile>
     <ClCompile Include="material\DiffuseLight.cpp">
-      <Filter>material</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\XyRect.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\YzRect.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\XzRect.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\FlipNormals.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\Box.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\Translate.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\RotateY.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="shape\ConstantMedium.cpp">
-      <Filter>shape</Filter>
-    </ClCompile>
-    <ClCompile Include="ConstantTexture.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>material\cpp</Filter>
     </ClCompile>
     <ClCompile Include="material\Isotropic.cpp">
-      <Filter>material</Filter>
+      <Filter>material\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Lambertian.cpp">
+      <Filter>material\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Material.cpp">
+      <Filter>material\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="material\Metal.cpp">
+      <Filter>material\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\Box.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\BvhNode.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\ConstantMedium.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\FlipNormals.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\MovingSphere.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\RotateY.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\ShapeList.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\Sphere.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\Translate.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\XyRect.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\XzRect.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="shape\YzRect.cpp">
+      <Filter>shape\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="texture\CheckerTexture.cpp">
+      <Filter>texture\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="texture\ConstantTexture.cpp">
+      <Filter>texture\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="texture\ImageTexture.cpp">
+      <Filter>texture\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="texture\NoiseTexture.cpp">
+      <Filter>texture\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="texture\Perlin.cpp">
+      <Filter>texture\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +161,6 @@
     <ClInclude Include="ImageFilter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Template\Singleton.h">
-      <Filter>template</Filter>
-    </ClInclude>
     <ClInclude Include="common\Vector3.h">
       <Filter>common</Filter>
     </ClInclude>
@@ -155,86 +170,95 @@
     <ClInclude Include="common\Size.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="material\Lambertian.h">
-      <Filter>material</Filter>
-    </ClInclude>
-    <ClInclude Include="material\Material.h">
-      <Filter>material</Filter>
-    </ClInclude>
-    <ClInclude Include="material\Metal.h">
-      <Filter>material</Filter>
-    </ClInclude>
-    <ClInclude Include="material\Dielectric.h">
-      <Filter>material</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\Sphere.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\ShapeList.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\HitRecord.h">
-      <Filter>shape</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\MovingSphere.h">
-      <Filter>shape</Filter>
     </ClInclude>
     <ClInclude Include="AABB.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="shape\BvhNode.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckerTexture.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Perlin.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="NoiseTexture.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageTexture.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="material\Dielectric.h">
+      <Filter>material\header</Filter>
     </ClInclude>
     <ClInclude Include="material\DiffuseLight.h">
-      <Filter>material</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\XyRect.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\YzRect.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\XzRect.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\FlipNormals.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\Box.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\Translate.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\RotateY.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="shape\ConstantMedium.h">
-      <Filter>shape</Filter>
-    </ClInclude>
-    <ClInclude Include="ConstantTexture.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>material\header</Filter>
     </ClInclude>
     <ClInclude Include="material\Isotropic.h">
-      <Filter>material</Filter>
+      <Filter>material\header</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Lambertian.h">
+      <Filter>material\header</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Material.h">
+      <Filter>material\header</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Materials.h">
+      <Filter>material\header</Filter>
+    </ClInclude>
+    <ClInclude Include="material\Metal.h">
+      <Filter>material\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Box.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\BvhNode.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\HitRecord.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\ConstantMedium.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\FlipNormals.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\MovingSphere.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\RotateY.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\ShapeList.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Shapes.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Sphere.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\Translate.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\XyRect.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\XzRect.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\YzRect.h">
+      <Filter>shape\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\CheckerTexture.h">
+      <Filter>texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\ConstantTexture.h">
+      <Filter>texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\ImageTexture.h">
+      <Filter>texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\NoiseTexture.h">
+      <Filter>texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\Perlin.h">
+      <Filter>texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\Texture.h">
+      <Filter>texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="texture\Textures.h">
+      <Filter>texture\header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

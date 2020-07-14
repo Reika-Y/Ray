@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "common/Geometry.h"
+#include "../common/Geometry.h"
 
 class Texture
 {
